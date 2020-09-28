@@ -1,0 +1,31 @@
+<?php
+class Anguo
+{
+private $num=100;
+function __get($num)
+{
+if($num=='num')
+{
+$a=$this->num;
+echo "静态变量是什么===='$a'";
+}
+}
+function baoxian()
+{
+echo "===保障成功====\n";
+}
+function __call($funname,$funarg)
+{
+echo "===保障失败=='$funname'==\n";
+}
+function __callstatic($funname,$funarg)
+  {
+    echo "===static静态保障失败=='$funname'==\n";
+    }
+}
+$Anguo=new Anguo();
+$Anguo->baoxian();
+$Anguo->daikuan();
+$Anguo->xinyongka();
+$Anguo::yinghangka();
+$b=$Anguo->num;
